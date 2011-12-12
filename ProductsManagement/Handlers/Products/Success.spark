@@ -1,0 +1,20 @@
+﻿<use namespace=" ProductsManagement.Handlers.Products"/>
+<viewdata model="ProductsManagement.Handlers.Products.SuccessOperationModel"/>
+<div class="alert-message success">
+<if condition="Model.Operation == OperationType.Update">
+    <p>Product [<strong>${Model.ProductName}</strong>] has been successfully updated.</p>
+</if>
+<if condition="Model.Operation == OperationType.Add">
+    <p>Product [<strong>${Model.ProductName}</strong>] has been successfully added.</p>
+</if>
+<if condition="Model.Operation == OperationType.Delete">
+    <p>Product has been successfully deleted.</p>
+</if>
+  <div class="alert-actions">
+    <a href="${Model.HomeUrl}" class="btn primary small">Go back to grid</a>
+<if condition="Model.Operation != OperationType.Delete">
+    <a href="${this.Urls.UrlFor(new EditProductRequest(){Id = Model.Id})}" class="btn small">Continue editing</a>
+</if>
+  </div>
+
+</div>

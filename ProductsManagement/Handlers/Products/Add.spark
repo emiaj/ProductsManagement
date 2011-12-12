@@ -1,0 +1,17 @@
+﻿<viewdata model="ProductsManagement.Handlers.Products.AddProductModel" />
+<div class="span7">
+  <ValidationErrors />
+    <form model="Model">
+    <fieldset>
+        <legend>Fill product data below</legend>
+        <editor for="Name" />
+        <editor for="Description" />
+        <editor for="Quantity" />
+        <div class='clearFix actions'>
+            <button class="btn primary">
+                Save</button>
+            <a input="HomeQueryModel" class="btn">Cancel</a>
+        </div>
+    </fieldset>
+    </form>
+</div>

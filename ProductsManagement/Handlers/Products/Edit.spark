@@ -1,0 +1,19 @@
+﻿<use namespace="ProductsManagement.Handlers.Products"/>
+<viewdata model="ProductsManagement.Handlers.Products.EditProductModel"/>
+<div class="span7">
+  <ValidationErrors />
+  <form model="Model">
+    <fieldset>
+      <legend>Edit ${Model.Name}</legend>
+      <em>
+        <editor for="Name"/>
+        <editor for="Description"/>
+        <editor for="Quantity"/>
+        <div class='clearFix actions'>
+          <button class="btn primary">Save</button>
+          <a input="HomeQueryModel" class="btn">Cancel</a>
+        </div>
+      </em>
+    </fieldset>
+  </form>
+</div>

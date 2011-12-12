@@ -1,0 +1,4 @@
+﻿<viewdata model="ProductsManagement.Handlers.Products.HomeQueryModel"/>
+<table id="grid">
+</table>
+<div id="pager"></div>

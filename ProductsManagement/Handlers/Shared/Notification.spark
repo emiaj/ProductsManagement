@@ -1,0 +1,17 @@
+<use master="" />
+<use namespace="FubuLocalization" />
+<viewdata model="FubuValidation.Notification" />
+<div class="alert-message error ${Model.AllMessages.Any()?"":"hide"}">
+<strong>An error occurred - Review the validation summary below</strong>
+<div class="clearFix"></div>
+    <dl>
+        <for each="var msg in Model.AllMessages">
+            <dt>
+                ${msg.Accessors.Select(x=>LocalizationManager.GetHeader(x.InnerProperty)).Join(",")} 
+            </dt>
+            <for each="var err in msg.ToValidationErrors()">
+                <dd>${err.message}</dd>
+            </for>
+        </for>
+    </dl>
+</div>

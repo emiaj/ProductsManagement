@@ -1,0 +1,13 @@
+﻿<use namespace="ProductsManagement.Handlers.Products" />
+<viewdata model="ProductsManagement.Handlers.Products.DeleteCommandModel" />
+<div class="alert-message warning">
+    <p>
+        You are about to delete Product [<strong>${Model.Name}</strong>].
+    </p>
+    <div class="alert-actions">
+        <form model="Model">
+        <button class="btn danger">Yes, I am sure! Proceed!</button>
+        <a href="${Model.HomeUrl}" class="btn">Cancel! Go back to grid</a>
+        </form>
+    </div>
+</div>

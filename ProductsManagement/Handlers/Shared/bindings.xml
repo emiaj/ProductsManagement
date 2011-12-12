@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<bindings>
+  <element name="PageTitle">
+    "Products Management :: " + this.Get&lt;FubuMVC.Core.Http.ICurrentChain&gt;().Current.FirstCall().HandlerType.Name.Replace("Handler", "")
+  </element>
+  <element name = "form">
+    <start>this.FormFor(@model)</start>
+    <end>this.EndForm()</end>
+  </element>
+  <element name="label">
+    this.LabelFor(x=>x.@for)
+  </element>
+  <element name="input">
+    this.InputFor(x=>x.@for)
+  </element>
+  <element name="display">
+    this.DisplayFor(x=>x.@for)
+  </element>
+  <element name="editor">
+    <![CDATA[
+      "<div class='clearFix'>" + 
+        this.LabelFor(x=>x.@for) + 
+        "<div class='input'>" +
+          this.InputFor(x=>x.@for) +
+        "</div>" +     
+      "</div>"    
+    ]]>
+  </element>
+  <element name="a">
+    <![CDATA[
+    this.LinkTo<@input>().Text("child::*").AddClasses("@class".Split(' '))
+    ]]>
+  </element>
+  <element name="ValidationErrors">#this.Partial&lt;FubuValidation.Notification&gt;();</element>
+</bindings>
