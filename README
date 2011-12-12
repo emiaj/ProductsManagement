@@ -1,0 +1,4 @@
+How to compile the app:
+	You need to install nuget, and the NuGetPowerTools nuget package (Install-Package NuGetPowerTools).
+	After that, compile the solution and should work just fine.
+	More information here: http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages
