@@ -247,7 +247,6 @@
     <Compile Include="Handlers\Products\GridHandler.cs" />
     <Compile Include="Handlers\Products\HomeHandler.cs" />
     <Compile Include="Handlers\Products\SuccessHandler.cs" />
-    <Compile Include="Handlers\Products\SaveHandler.cs" />
     <Compile Include="Infrastructure\AutoMapperActivator.cs" />
     <Compile Include="Infrastructure\ValidationDescriptor.cs" />
     <Compile Include="Infrastructure\LocaleCacheExtensions.cs" />
@@ -265,7 +264,9 @@
     <Folder Include="content\images\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="application.script.config" />
