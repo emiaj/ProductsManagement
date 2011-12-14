@@ -2,6 +2,7 @@
     $("form").ajaxForm({
         beforeSubmit: function () {
             $(".alert-message").addClass("hide");
+            return $("form").valid();
         },
         success: function (res) {
             if (res.success) {

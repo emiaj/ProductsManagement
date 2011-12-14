@@ -1,8 +1,8 @@
 ﻿<use namespace="ProductsManagement.Handlers.Products"/>
 <viewdata model="ProductsManagement.Handlers.Products.EditProductModel"/>
 <div class="span7">
-  <ValidationErrors />
   <form model="Model">
+    <ValidationErrors />
     <fieldset>
       <legend>Edit ${Model.Name}</legend>
       <em>

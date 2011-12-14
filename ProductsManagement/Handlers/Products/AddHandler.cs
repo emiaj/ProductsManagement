@@ -1,4 +1,3 @@
-using System.Threading;
 using AutoMapper;
 using FubuMVC.Core.Ajax;
 using FubuValidation;

@@ -4,6 +4,7 @@ using Bottles;
 using FubuLocalization.Basic;
 using FubuMVC.Core;
 using FubuMVC.Core.Localization;
+using FubuMVC.Core.Registration.ObjectGraph;
 using FubuMVC.Core.UI;
 using FubuMVC.Spark;
 using FubuMVC.Validation;
@@ -12,6 +13,7 @@ using ProductsManagement.Conventions;
 using ProductsManagement.Domain;
 using ProductsManagement.Handlers.Products;
 using ProductsManagement.Infrastructure;
+using ProductsManagement.Infrastructure.Validation;
 
 namespace ProductsManagement
 {
@@ -52,6 +54,11 @@ namespace ProductsManagement
                 x.DefaultCulture = Thread.CurrentThread.CurrentUICulture;
             });
 
+
+            var validationRulesHtmlConventionActivator = ObjectDef.ForType<ValidationHtmlConvention>();
+            var validationRulesHtmlConvention = new HtmlConventionRegistry();
+            validationRulesHtmlConventionActivator.DependencyByValue(validationRulesHtmlConvention);
+
             Services(cfg =>
                          {
                              cfg.SetServiceIfNone<IProductService, InMemoryProductService>();
@@ -59,11 +66,16 @@ namespace ProductsManagement
                              cfg.SetServiceIfNone(Mapper.Configuration);
                              cfg.SetServiceIfNone<ILocaleCacheFactory, LocaleCacheFactory>();
                              cfg.SetServiceIfNone<IValidationDescriptorProvider>(new ValidationDescriptorProvider());
+                             cfg.AddService<IHtmlValidationConvention, LocalizedNameConvention>();
+                             cfg.AddService<IHtmlValidationConvention, RequiredHtmlValidationConvention>();
+                             cfg.AddService<IHtmlValidationConvention, GreaterOrEqualToZeroHtmlValidationConvention>();
                              cfg.AddService<IActivator, AutoMapperActivator>();
                              cfg.AddService<IActivator, ValidationDescriptorProviderFiller>();
+                             cfg.AddService(typeof (IActivator), validationRulesHtmlConventionActivator);
                          });
 
             HtmlConvention(htmlConventions);
+            HtmlConvention(validationRulesHtmlConvention);
 
             this.Validation(validation =>
             {

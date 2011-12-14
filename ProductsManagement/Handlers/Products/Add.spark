@@ -1,7 +1,7 @@
 ﻿<viewdata model="ProductsManagement.Handlers.Products.AddProductModel" />
 <div class="span7">
-  <ValidationErrors />
     <form model="Model">
+  <ValidationErrors />
     <fieldset>
         <legend>Fill product data below</legend>
         <editor for="Name" />
