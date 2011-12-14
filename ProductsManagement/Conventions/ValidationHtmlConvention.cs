@@ -8,7 +8,7 @@ using FubuMVC.Core.UI;
 using FubuValidation.Fields;
 using ProductsManagement.Infrastructure.Validation;
 
-namespace ProductsManagement.Infrastructure
+namespace ProductsManagement.Conventions
 {
     public class ValidationHtmlConvention : IActivator
     {

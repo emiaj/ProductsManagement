@@ -239,6 +239,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conventions\AddProductModelValidationConvention.cs" />
     <Compile Include="Conventions\HandlerAssetConvention.cs" />
     <Compile Include="Domain\Entities\Product.cs" />
     <Compile Include="Global.asax.cs">
@@ -257,7 +258,7 @@
     <Compile Include="Infrastructure\LocalizationActivator.cs" />
     <Compile Include="Infrastructure\ValidationDescriptorProvider.cs" />
     <Compile Include="Infrastructure\ValidationDescriptorProviderFiller.cs" />
-    <Compile Include="Infrastructure\ValidationHtmlConvention.cs" />
+    <Compile Include="Conventions\ValidationHtmlConvention.cs" />
     <Compile Include="Infrastructure\Validation\HtmlRuleDef.cs" />
     <Compile Include="Infrastructure\Validation\IHtmlValidationConvention.cs" />
     <Compile Include="Infrastructure\Validation\TagExtensions.cs" />

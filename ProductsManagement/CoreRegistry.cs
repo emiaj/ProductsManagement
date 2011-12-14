@@ -9,6 +9,7 @@ using FubuMVC.Core.UI;
 using FubuMVC.Spark;
 using FubuMVC.Validation;
 using FubuValidation;
+using FubuValidation.Fields;
 using ProductsManagement.Conventions;
 using ProductsManagement.Domain;
 using ProductsManagement.Handlers.Products;
@@ -69,6 +70,8 @@ namespace ProductsManagement
                              cfg.AddService<IHtmlValidationConvention, LocalizedNameConvention>();
                              cfg.AddService<IHtmlValidationConvention, RequiredHtmlValidationConvention>();
                              cfg.AddService<IHtmlValidationConvention, GreaterOrEqualToZeroHtmlValidationConvention>();
+                             cfg.AddService<IHtmlValidationConvention, MaximumLengthHtmlValidationConvention>();
+                             cfg.AddService<IFieldValidationSource, AddProductModelValidationConvention>();
                              cfg.AddService<IActivator, AutoMapperActivator>();
                              cfg.AddService<IActivator, ValidationDescriptorProviderFiller>();
                              cfg.AddService(typeof (IActivator), validationRulesHtmlConventionActivator);
