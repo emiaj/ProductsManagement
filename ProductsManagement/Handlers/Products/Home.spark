@@ -1,4 +1,7 @@
-﻿<viewdata model="ProductsManagement.Handlers.Products.HomeQueryModel"/>
-<table id="grid">
-</table>
-<div id="pager"></div>
+﻿<viewdata model="ProductsManagement.Handlers.Products.HomeQueryModel" />
+<div class="span16">
+    <table id="grid">
+    </table>
+    <div id="pager">
+    </div>
+</div>

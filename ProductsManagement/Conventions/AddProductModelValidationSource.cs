@@ -5,7 +5,7 @@ using ProductsManagement.Handlers.Products;
 
 namespace ProductsManagement.Conventions
 {
-    public class AddProductModelValidationConvention : IFieldValidationSource
+    public class AddProductModelValidationSource : IFieldValidationSource
     {
         public IEnumerable<IFieldValidationRule> RulesFor(PropertyInfo property)
         {

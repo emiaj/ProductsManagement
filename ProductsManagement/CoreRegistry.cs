@@ -46,6 +46,9 @@ namespace ProductsManagement
 
             Policies.ConditionallyWrapBehaviorChainsWith<HandlerAssetConvention>(x => x.HandlerType.Namespace.Contains("Products"));
 
+            Policies.Add(new ProductNotFoundPolicy<EditHandler>(h => h.Query(null)));
+            Policies.Add(new ProductNotFoundPolicy<DeleteHandler>(h => h.Query(null)));
+
             Output.ToJson.WhenCallMatches(x => x.Method.Name.Equals("Data"));
 
             Import<BasicLocalizationSupport>(x =>
@@ -71,7 +74,7 @@ namespace ProductsManagement
                              cfg.AddService<IHtmlValidationConvention, RequiredHtmlValidationConvention>();
                              cfg.AddService<IHtmlValidationConvention, GreaterOrEqualToZeroHtmlValidationConvention>();
                              cfg.AddService<IHtmlValidationConvention, MaximumLengthHtmlValidationConvention>();
-                             cfg.AddService<IFieldValidationSource, AddProductModelValidationConvention>();
+                             cfg.AddService<IFieldValidationSource, AddProductModelValidationSource>();
                              cfg.AddService<IActivator, AutoMapperActivator>();
                              cfg.AddService<IActivator, ValidationDescriptorProviderFiller>();
                              cfg.AddService(typeof (IActivator), validationRulesHtmlConventionActivator);

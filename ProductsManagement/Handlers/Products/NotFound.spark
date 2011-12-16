@@ -1,0 +1,7 @@
+﻿<viewdata model="ProductsManagement.Handlers.Products.NotFoundModel" />
+<div class="span7">
+<div class="alert-message error">
+    <a class="close" href="#">&times;</a>
+    <p>Requested product <strong>${Model.Id}</strong> does not exist.</p>
+</div>
+</div>

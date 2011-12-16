@@ -1,4 +1,5 @@
 using AutoMapper;
+using FubuLocalization;
 using FubuMVC.Core;
 using FubuMVC.Core.Continuations;
 using FubuMVC.Core.Runtime;
@@ -13,7 +14,7 @@ namespace ProductsManagement.Handlers.Products
         private readonly IMappingEngine _mapper;
         private readonly IFubuRequest _fubuRequest;
 
-        public EditHandler(IProductService productService, IMappingEngine mapper,IFubuRequest fubuRequest)
+        public EditHandler(IProductService productService, IMappingEngine mapper, IFubuRequest fubuRequest)
         {
             _productService = productService;
             _mapper = mapper;
@@ -23,7 +24,7 @@ namespace ProductsManagement.Handlers.Products
         public EditProductModel Query(EditProductRequest request)
         {
             // NOTE: IS THERE A WAY TO DO THIS WITHOUT USING THIS "IF" STATEMENT?
-            if(_fubuRequest.Has<EditProductModel>())
+            if (_fubuRequest.Has<EditProductModel>())
             {
                 return _fubuRequest.Get<EditProductModel>();
             }
@@ -49,6 +50,8 @@ namespace ProductsManagement.Handlers.Products
         [RouteInput]
         public int Id { get; set; }
     }
+
+
 
     public class EditProductModel
     {
