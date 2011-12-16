@@ -10,11 +10,11 @@ namespace ProductsManagement.Infrastructure.Validation
         public Type RuleType { get; set; }
         public IFieldValidationRule RuleInstance { get; set; }
     }
+
     public interface IHtmlRuleDef
     {
-        Accessor Accessor { get; set; }
-        Type RuleType { get; set; }
-        IFieldValidationRule RuleInstance { get; set; }
+        Accessor Accessor { get; }
+        Type RuleType { get; }
+        IFieldValidationRule RuleInstance { get; }
     }
-
 }
