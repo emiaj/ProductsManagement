@@ -19,7 +19,7 @@ namespace ProductsManagement.Infrastructure
         public void Activate(IEnumerable<IPackageInfo> packages, IPackageLog log)
         {
             _configuration.CreateMap<Product, EditProductModel>();
-            _configuration.CreateMap<EditProductModel, Product>();
+            _configuration.CreateMap<EditProductCommandModel, Product>();
 
             _configuration.CreateMap<Product, AddProductModel>();
             _configuration.CreateMap<AddProductModel, Product>();

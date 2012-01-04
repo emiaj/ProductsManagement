@@ -27,19 +27,20 @@ namespace ProductsManagement.Infrastructure
             postActionsFinder.Filters.Add(x => x.FirstCall().HasInput);
             postActionsFinder.Actions += x =>
             {
-                var handlerActions = _graph.ActionsForHandler(x.FirstCall().HandlerType);
-                var queryAction = handlerActions
+                var postAction = x.FirstCall();
+                var handlerActions = _graph.ActionsForHandler(postAction.HandlerType);
+                var getAction = handlerActions
                     .Where(h => h.ParentChain().Route != null)
                     .Where(h => h.ParentChain().Route.AllowedHttpMethods.Contains("GET"))
                     .Where(h => h.HasInput).Where(h => h.HasOutput)
-                    .Where(h => h.OutputType() == x.InputType())
-                    .FirstOrDefault();
+                    .FirstOrDefault(h => x.InputType().IsAssignableFrom(h.OutputType()));
 
-                if (queryAction != null)
+                if (getAction == null)
                 {
-                    _provider.Register(x.FirstCall(), queryAction.InputType());
+                    return;
                 }
-
+                log.Trace("Linking validation descriptor for {0} against {1}.", postAction, getAction);
+                _provider.Register(postAction, getAction.InputType());
             };
             _graph.VisitBehaviors(postActionsFinder);
         }

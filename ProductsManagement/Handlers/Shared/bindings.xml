@@ -26,6 +26,19 @@
       "</div>"    
     ]]>
   </element>
+
+  <element name="posteditor">
+    <![CDATA[
+      "<div class='clearFix'>" + 
+        this.LabelFor(x=>x.@for) + 
+        "<div class='input'>" +
+          this.InputFor(Model.OriginalModel??Model,x=>x.@for) +
+        "</div>" +     
+      "</div>"    
+    ]]>
+  </element>
+
+
   <element name="a">
     <![CDATA[
     this.LinkTo<@input>().Text("child::*").AddClasses("@class".Split(' '))

@@ -1,8 +1,6 @@
 using AutoMapper;
-using FubuLocalization;
 using FubuMVC.Core;
 using FubuMVC.Core.Continuations;
-using FubuMVC.Core.Runtime;
 using FubuValidation;
 using ProductsManagement.Domain;
 
@@ -12,28 +10,21 @@ namespace ProductsManagement.Handlers.Products
     {
         private readonly IProductService _productService;
         private readonly IMappingEngine _mapper;
-        private readonly IFubuRequest _fubuRequest;
 
-        public EditHandler(IProductService productService, IMappingEngine mapper, IFubuRequest fubuRequest)
+        public EditHandler(IProductService productService, IMappingEngine mapper)
         {
             _productService = productService;
             _mapper = mapper;
-            _fubuRequest = fubuRequest;
         }
 
-        public EditProductModel Query(EditProductRequest request)
+        public EditProductModel Query(EditProductModel model)
         {
-            // NOTE: IS THERE A WAY TO DO THIS WITHOUT USING THIS "IF" STATEMENT?
-            if (_fubuRequest.Has<EditProductModel>())
-            {
-                return _fubuRequest.Get<EditProductModel>();
-            }
-            var product = _productService.GetById(request.Id);
-            var model = _mapper.Map<EditProductModel>(product);
+            var product = _productService.GetById(model.Id);
+            _mapper.Map(product, model);
             return model;
         }
 
-        public FubuContinuation Command(EditProductModel model)
+        public FubuContinuation Command(EditProductCommandModel model)
         {
             var product = _productService.GetById(model.Id);
             _mapper.Map(model, product);
@@ -45,15 +36,7 @@ namespace ProductsManagement.Handlers.Products
         }
     }
 
-    public class EditProductRequest
-    {
-        [RouteInput]
-        public int Id { get; set; }
-    }
-
-
-
-    public class EditProductModel
+    public class EditProductCommandModel
     {
         [RouteInput]
         public int Id { get; set; }
@@ -65,5 +48,10 @@ namespace ProductsManagement.Handlers.Products
         [Required]
         [GreaterOrEqualToZero]
         public int? Quantity { get; set; }
+    }
+
+    public class EditProductModel : EditProductCommandModel
+    {
+        public EditProductCommandModel OriginalModel { get; set; }
     }
 }

@@ -120,6 +120,7 @@
     <Content Include="content\scripts\bootstrap-scrollspy.js" />
     <Content Include="content\scripts\bootstrap-tabs.js" />
     <Content Include="content\scripts\bootstrap-twipsy.js" />
+    <Content Include="content\scripts\products.edit.js" />
     <Content Include="content\scripts\products.forms.js" />
     <Content Include="content\scripts\jquery.metadata.defaults.js" />
     <Content Include="content\scripts\jquery.form.js" />
@@ -241,6 +242,7 @@
   <ItemGroup>
     <Compile Include="Conventions\AddProductModelValidationSource.cs" />
     <Compile Include="Conventions\HandlerAssetConvention.cs" />
+    <Compile Include="Conventions\OriginalModelBinder.cs" />
     <Compile Include="Conventions\ProductNotFoundConvention.cs" />
     <Compile Include="Domain\Entities\Product.cs" />
     <Compile Include="Global.asax.cs">

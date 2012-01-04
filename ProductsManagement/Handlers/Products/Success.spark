@@ -13,7 +13,7 @@
   <div class="alert-actions">
     <a href="${Model.HomeUrl}" class="btn primary small">Go back to grid</a>
 <if condition="Model.Operation != OperationType.Delete">
-    <a href="${this.Urls.UrlFor(new EditProductRequest(){Id = Model.Id})}" class="btn small">Continue editing</a>
+    <a href="${this.Urls.UrlFor(new EditProductModel(){Id = Model.Id})}" class="btn small">Continue editing</a>
 </if>
   </div>
 

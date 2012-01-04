@@ -87,8 +87,11 @@ namespace ProductsManagement
             {
                 validation.Actions.Include(call => call.HasInput && call.Method.Name.Equals("Command"));
                 validation.Failures
-                    .IfModelIs<EditProductModel>().TransferBy<ValidationDescriptor>();
+                    .IfModelIs<EditProductCommandModel>().TransferBy<ValidationDescriptor>();
             });
+
+            Models.BindPropertiesWith<OriginalModelBinder>();
+
         }
 
         private static void htmlConventions(HtmlConventionRegistry x)
