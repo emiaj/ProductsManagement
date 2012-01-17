@@ -118,7 +118,7 @@ desc "ZIPs up the build results"
 zip :package do |zip|
         mkdir_p ARTIFACTS
         zip.directories_to_zip = [STAGE_DIR]
-        zip.output_file = 'zeitgarden-'+ build_number + '.zip'
+        zip.output_file = 'productsmanagement-'+ build_number + '.zip'
         zip.output_path = [ARTIFACTS]
 end
 
