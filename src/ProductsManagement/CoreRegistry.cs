@@ -23,7 +23,7 @@ namespace ProductsManagement
         public CoreRegistry()
         {
             Applies.ToThisAssembly();
-            IncludeDiagnostics(true);
+            //IncludeDiagnostics(true);
 
             Actions.IncludeTypesNamed(x => x.EndsWith("Handler"));
 

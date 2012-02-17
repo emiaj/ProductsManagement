@@ -1,8 +1,4 @@
 ﻿using System;
-using FubuMVC.Core;
-using FubuMVC.StructureMap;
-using FubuValidation.StructureMap;
-using StructureMap.Configuration.DSL;
 
 namespace ProductsManagement
 {
@@ -12,14 +8,7 @@ namespace ProductsManagement
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
-            FubuApplication.For<CoreRegistry>()
-                .StructureMapObjectFactory(x =>
-                {
-                    var registry = new Registry();
-                    registry.FubuValidation();
-                    x.AddRegistry(registry);
-                })
-                .Bootstrap();
+            new ProductsManagementApplication().BuildApplication().Bootstrap();
         }
 
         void Application_End(object sender, EventArgs e)

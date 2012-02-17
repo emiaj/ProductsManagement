@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsManagement", "ProductsManagement\ProductsManagement.csproj", "{1FC4C730-F757-4E24-B26F-4D8369A63FA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsManagement.IntegrationTests", "ProductsManagement.IntegrationTests\ProductsManagement.IntegrationTests.csproj", "{4EEFEB33-76D6-4E86-8FA0-13389FEA4EFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{1FC4C730-F757-4E24-B26F-4D8369A63FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FC4C730-F757-4E24-B26F-4D8369A63FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FC4C730-F757-4E24-B26F-4D8369A63FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EEFEB33-76D6-4E86-8FA0-13389FEA4EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EEFEB33-76D6-4E86-8FA0-13389FEA4EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EEFEB33-76D6-4E86-8FA0-13389FEA4EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EEFEB33-76D6-4E86-8FA0-13389FEA4EFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
